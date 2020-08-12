@@ -26,7 +26,7 @@
               },
               {
                 "name": "JwtTokenOptions__Key",
-                "value": "asfdadfkjsfhkeuhfsuefhskhfekusfhuksehsukehfusek"
+                "value": "< TOKEN HERE >"
               }
             ],
             "image": "cloudtrader.azurecr.io/cloudtrader-api:v2",

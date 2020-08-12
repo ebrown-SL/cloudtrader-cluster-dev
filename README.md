@@ -1,20 +1,25 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Introduction
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Deployment and service `.yaml` for the cloudtrader services.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Getting Started
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+### Requirements
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- Azure CLI ([download](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli))
+  - Logged in (using `az login`)
+- Kubectl ([download](https://v1-16.docs.kubernetes.io/docs/tasks/tools/install-kubectl/))
+
+### Usage
+
+To configure `Kubectl` to use the cloudtrader cluster:
+
+```bash
+az aks get-credentials -g cloudtrader -n cloudtrader-cluster
+```
+
+To update the cluster with new `.yaml` descriptions:
+
+```bash
+kubectl apply -f <file / folder>
+```

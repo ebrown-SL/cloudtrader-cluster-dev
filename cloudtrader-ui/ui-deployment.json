@@ -14,7 +14,7 @@
       "spec": {
         "containers": [
           {
-            "env": [{ "name": "API_URL", "value": "http://cloudtrader-api" }],
+            "env": [{ "name": "API_URL", "value": "http://20.39.165.176" }],
             "image": "cloudtrader.azurecr.io/cloudtrader-ui:v2",
             "name": "cloudtrader-ui",
             "ports": [{ "containerPort": 80 }]

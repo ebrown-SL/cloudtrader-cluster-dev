@@ -23,3 +23,7 @@ To update the cluster with new `.yaml` descriptions:
 ```bash
 kubectl apply -f <file / folder>
 ```
+
+## Azure CR
+
+To see currently available containers for each service, visit the [Azure Container Registry](https://portal.azure.com/#@scottlogic.onmicrosoft.com/resource/subscriptions/bc77519f-1060-41f1-8b44-412dc403507b/resourceGroups/CloudTrader/providers/Microsoft.ContainerRegistry/registries/cloudTrader/overview).

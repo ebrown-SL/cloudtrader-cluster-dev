@@ -1,6 +1,6 @@
 # Introduction
 
-Deployment and service `.yaml` for the cloudtrader services.
+Deployment and service `.json` for the cloudtrader services.
 
 ## Getting Started
 
@@ -18,10 +18,16 @@ To configure `Kubectl` to use the cloudtrader cluster:
 az aks get-credentials -g cloudtrader -n cloudtrader-cluster
 ```
 
-To update the cluster with new `.yaml` descriptions:
+To update the cluster with new `.json` descriptions:
 
 ```bash
 kubectl apply -f <file / folder>
+
+### Example to check for changes in cloudtrader-ui service and deployment
+kubectl apply -f cloudtrader-ui
+
+### Example to check for changes only in cloudtrader-ui deployment
+kubectl apply -f cloudtrader-ui/ui-deployment.json
 ```
 
 ## Azure CR

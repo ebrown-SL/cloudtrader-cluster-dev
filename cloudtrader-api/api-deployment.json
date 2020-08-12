@@ -26,7 +26,12 @@
               },
               {
                 "name": "JwtTokenOptions__Key",
-                "value": "< TOKEN HERE >"
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "apitoken",
+                    "key": "apitoken"
+                  }
+                }
               }
             ],
             "image": "cloudtrader.azurecr.io/cloudtrader-api:v2",

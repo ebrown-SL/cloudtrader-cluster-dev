@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudtrader-api
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudtrader-api
+  template:
+    metadata:
+      labels:
+        aadpodidbinding: azure-pod-identity-binding-selector
+        app: cloudtrader-api
+    spec:
+      containers:
+        - env: 
+          - name: TRADER_API_URL
+            value: 'http://cloudtrader-traders'
+          - name: JwtTokenOptions__Key
+            valueFrom: 
+              secretKeyRef: 
+                name: apitoken
+                key: apitoken
+          image: 'cloudtrader.azurecr.io/cloudtrader-api:v2'
+          name: cloudtrader-api
+          ports: 
+            - containerPort: 80

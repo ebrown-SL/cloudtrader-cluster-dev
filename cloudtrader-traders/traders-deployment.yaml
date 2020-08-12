@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudtrader-traders
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudtrader-traders
+  template:
+    metadata:
+      labels:
+        aadpodidbinding: azure-pod-identity-binding-selector
+        app: cloudtrader-traders
+    spec:
+      containers:
+        - image: 'cloudtrader.azurecr.io/cloudtrader-traders:v2'
+          name: cloudtrader-traders
+          ports:
+            - containerPort: 80

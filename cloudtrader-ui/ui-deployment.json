@@ -1,0 +1,26 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "annotations": {},
+    "name": "cloudtrader-ui",
+    "namespace": "default"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": { "matchLabels": { "app": "cloudtrader-ui" } },
+    "template": {
+      "metadata": { "labels": { "app": "cloudtrader-ui" } },
+      "spec": {
+        "containers": [
+          {
+            "env": [{ "name": "API_URL", "value": "http://cloudtrader-api" }],
+            "image": "cloudtrader.azurecr.io/cloudtrader-ui:v2",
+            "name": "cloudtrader-ui",
+            "ports": [{ "containerPort": 80 }]
+          }
+        ]
+      }
+    }
+  }
+}

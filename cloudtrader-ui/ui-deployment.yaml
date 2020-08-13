@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   replicas: 1
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: cloudtrader-ui
@@ -16,7 +17,7 @@ spec:
       containers:
         - env:
             - name: API_URL
-              value: 'http://20.39.165.176'
+              value: 'https://cloudtrader.ukwest.cloudapp.azure.com/api'
           image: 'cloudtrader.azurecr.io/cloudtrader-ui:v2'
           name: cloudtrader-ui
           ports:

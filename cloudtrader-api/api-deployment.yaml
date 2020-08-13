@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   replicas: 1
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: cloudtrader-api
@@ -15,15 +16,15 @@ spec:
         app: cloudtrader-api
     spec:
       containers:
-        - env: 
-          - name: TRADER_API_URL
-            value: 'http://cloudtrader-traders'
-          - name: JwtTokenOptions__Key
-            valueFrom: 
-              secretKeyRef: 
-                name: apitoken
-                key: apitoken
-          image: 'cloudtrader.azurecr.io/cloudtrader-api:v2'
+        - env:
+            - name: TRADER_API_URL
+              value: 'http://cloudtrader-traders'
+            - name: JwtTokenOptions__Key
+              valueFrom:
+                secretKeyRef:
+                  name: apitoken
+                  key: apitoken
+          image: 'cloudtrader.azurecr.io/cloudtrader-api:v2.0.1'
           name: cloudtrader-api
-          ports: 
+          ports:
             - containerPort: 80

@@ -2,11 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cloudtrader-api
-  namespace: default
 spec:
+  type: ClusterIP
   ports:
-    - port: 80
-      targetPort: 80
+  - port: 80
   selector:
     app: cloudtrader-api
-  type: LoadBalancer

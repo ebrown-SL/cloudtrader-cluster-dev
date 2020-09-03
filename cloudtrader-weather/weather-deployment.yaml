@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudtrader-weather
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: cloudtrader-weather
+  template:
+    metadata:
+      labels:
+        app: cloudtrader-weather
+    spec:
+      containers:
+        - env:
+            - name: API_URL
+              value: 'https://cloudtrader.ukwest.cloudapp.azure.com/api'
+          image: 'cloudtrader.azurecr.io/cloudtrader-weather:v1'
+          name: cloudtrader-weather
+          ports:
+            - containerPort: 80

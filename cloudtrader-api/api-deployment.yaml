@@ -17,14 +17,13 @@ spec:
     spec:
       containers:
         - env:
-            - name: TRADER_API_URL
+            - name: TRADERS_API_URL
               value: 'http://cloudtrader-traders'
+            - name: MINES_API_URL
+              value: 'http://cloudtrader-mines'
             - name: JwtTokenOptions__Key
-              valueFrom:
-                secretKeyRef:
-                  name: apitoken
-                  key: apitoken
-          image: 'cloudtrader.azurecr.io/cloudtrader-api:v2.0.1'
+              value: 'SomeTemporaryDummyKeyToBeChangedInFollowUpWork'
+          image: 'cloudtrader.azurecr.io/cloudtrader-api:4d5f1238fb8b2fd9520e6b86d43c9af818a71360'
           name: cloudtrader-api
           ports:
             - containerPort: 80

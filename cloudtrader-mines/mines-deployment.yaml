@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloudtrader-ui
+  name: cloudtrader-mines
   namespace: default
 spec:
   replicas: 1
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app: cloudtrader-ui
+      app: cloudtrader-mines
   template:
     metadata:
       labels:
-        app: cloudtrader-ui
+        aadpodidbinding: azure-pod-identity-binding-selector
+        app: cloudtrader-mines
     spec:
       containers:
         - env:
             - name: API_URL
               value: 'https://cloudtrader.ukwest.cloudapp.azure.com/api'
-          image: 'cloudtrader.azurecr.io/cloudtrader-ui:aa35624e3acb962088f4b84cae6443fba61a76b4'
-          name: cloudtrader-ui
+          image: 'cloudtrader.azurecr.io/cloudtrader-mines:71756d673d7d5cdd61871afc6ce1f5c33811c725'
+          name: cloudtrader-mines
           ports:
             - containerPort: 80

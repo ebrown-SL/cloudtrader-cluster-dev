@@ -16,7 +16,7 @@ spec:
         app: cloudtrader-traders
     spec:
       containers:
-        - image: 'cloudtrader.azurecr.io/cloudtrader-traders:v2'
+        - image: 'cloudtrader.azurecr.io/cloudtrader-traders:858466995bafae8d860777dd36a7d6f33e8b2263'
           name: cloudtrader-traders
           ports:
             - containerPort: 80

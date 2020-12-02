@@ -4,6 +4,7 @@ metadata:
   name: cloudtrader-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
@@ -18,7 +19,7 @@ spec:
           - backend:
               serviceName: cloudtrader-api
               servicePort: 80
-            path: /(api/.*)
+            path: /api/(.*)
           - backend:
               serviceName: cloudtrader-ui
               servicePort: 80

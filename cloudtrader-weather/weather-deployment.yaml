@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudtrader-weather
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: cloudtrader-weather
+  template:
+    metadata:
+      labels:
+        aadpodidbinding: azure-pod-identity-binding-selector
+        app: cloudtrader-weather
+    spec:
+      containers:
+        - image: 'cloudtrader.azurecr.io/cloudtrader-weather:103d0ed9133cdb4e48f30c678b774636564c6517'
+          name: cloudtrader-weather
+          ports:
+            - containerPort: 80
